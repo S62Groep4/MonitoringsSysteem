@@ -5,13 +5,25 @@
  */
 package domain;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.enterprise.inject.Model;
+import javax.inject.Inject;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author M
  */
-public class System {
+@Entity
+@Model
+public class System implements Serializable{
+    @Id
+    private Long id;
+    @Inject
+    private Country country;
+    
     private String componentName = null;
     private String versionNumber = null;
     private List<String> features = null;
@@ -54,5 +66,13 @@ public class System {
     
     public String getUrl(){
         return this.url;
+    }
+    
+    public void setId(Long id){
+        this.id = id;
+    }
+    
+    public Long getId(){
+        return this.id;
     }
 }
