@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h:form class=" ">
+
+            <!-- A grey horizontal navbar that becomes vertical on small screens -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin: 0;">
+                <a class="navbar-brand" href="javascript:void(0)">Rekeningsrijders monitoringssysteem</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-nav mr-auto">
+                </div>
+                <div class="collapse navbar-collapse col-4 float-right" id="navb">
+
+                    <p:inputText binding="#{input1}" class="form-control mr-sm-2" />
+                    <p:commandButton class="btn btn-success my-2 my-sm-0" value="Add"  
+                                     action="#{defaultBean.AddServer(input1.value)}" 
+                                     update="serverlist"/>
+
+                </div>
+            </nav>
+
+
+            <div class="container">
+                <div class="jumbotron ">
+                    <h1>Rekeningsrijders monitoringssysteem</h1>
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row">
+                        <h3  class="col-10 ">Servers</h3>
+                        <div class="col-2">
+                            <p:commandButton  class="btn btn-outline-primary btn-block" value="Reload"    onclick="reloadWebsites()"
+                                              action="#{defaultBean.RefreshServers}"  process="@this"
+                                              update="serverlist"/>
+                        </div>
+                        <h:messages errorClass="error"/>
+
+                    </div>
+                </div>
+
+                <div class="list-group-item ">
+
+
+                    <div class="datalist-noborder">
+
+                        <p:dataList   id="serverlist" value="#{defaultBean.servers}" var="server">
+                            <div class="alert #{server.background} row">
+                                <div class="col-8 ">
+                                    <h:inputText class="form-control url-input" id="usr2" value="#{server.URL}" disabled="true"/>
+                                </div>
+                                
+                                    <strong class="col-3 text-dark"> 
+                                        <div >#{server.error}</div>
+                                    </strong>
+                                <div class="col-1">
+                                    <p:commandButton icon="ui-icon-trash"
+                                                     title="Delete"
+                                                     actionListener="#{defaultBean.removeServer(server)}"
+                                                     ajax="false" />
+                                    </div>
+                                </div>
+                        </p:dataList>
+                    </div>
+                </div>
+
+
+            </div>
+        </h:form>
+
+        <link rel="stylesheet" href="stykes.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <script src="searchWebsites.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    </h:body>
+</html>
