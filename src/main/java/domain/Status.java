@@ -13,4 +13,5 @@ public enum Status {
     ONLINE,
     OFFLINE,
     ERROR
+
 }

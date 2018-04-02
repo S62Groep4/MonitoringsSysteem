@@ -9,21 +9,19 @@ import java.io.Serializable;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- *
- * @author M
- */
 @Entity
 @Model
 public class Country implements Serializable{
     @Id
-    private Long id = null;
-    @Inject
-    private Monitor monitor;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name = null;
-    private Boolean isExternal = null;
+    private Boolean isExternal ;
 
     public Country() {
     }
@@ -40,14 +38,7 @@ public class Country implements Serializable{
     public String getName(){
         return this.name;
     }
-    
-    public void setIsExternal(Boolean isExternal){
-        this.isExternal = isExternal;
-    }
-    
-    public Boolean getIsExternal(){
-        return this.isExternal;
-    }
+
     
     public void setId(Long id){
         this.id = id;
