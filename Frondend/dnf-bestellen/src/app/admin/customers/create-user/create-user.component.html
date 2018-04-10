@@ -1,0 +1,56 @@
+
+  <div class="card">
+
+  <div class="card-header bg-primary  text-white">
+    Nieuwe klant
+  </div>
+  <div class="card-body">
+    <div class="card card-default">
+      <div class="card-heading">
+        <div class="card-title">
+          <div class="table-responsive">
+            <form id="CreateNewUser" method="post">
+
+              <table ng-show="errorMessage" class="table">
+                <tr  ><label [hidden]="!errorMessage" id="lblNewUserFeedback" class="alert alert-danger center-block">{{errorMessage}}</label></tr>
+                <tr>
+                  <td>Naam:</td>
+                  <td><input id="newUserName" name="name" class="form-control"  [(ngModel)]="model.name"
+                             type="text" required>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Achternaam:</td>
+                  <td><input id="newUserLastName" name="lastName" class="form-control" [(ngModel)]="model.lastName" type="text" required>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Email:</td>
+                  <td><input id="newUserEmail" name="email" class="form-control" type="email" [(ngModel)]="model.email" required>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Persoon notitie:</td>
+                  <td><textarea id="newUserNote" name="note" class="form-control"  [(ngModel)]="model.note" rows="3"></textarea></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <input type="submit" id="submitnewuser"
+                           class="btn btn-primary btn-md" value="Aanmaken" (click)="register()"></td>
+                </tr>
+              </table>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+  </div>
+</div>
+
+
+  {{ currentBook}}

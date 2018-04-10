@@ -1,0 +1,12 @@
+
+
+<div *ngFor="let ImageAlbum of imagealbums$" class="row">
+  <div class="col-12">
+    <hr>
+    <h4>Shoot: {{ImageAlbum.date}}</h4>
+    <hr>
+
+    <app-image *ngFor="let image of ImageAlbum.images" [image$]=image></app-image>
+
+  </div>
+</div>
