@@ -18,7 +18,7 @@ public class CountryRepositoryImp implements CountryRepository {
     EntityManager em;
 
     @Override
-    public Country getCountry(int id) {
+    public Country getCountry(Long id) {
 
         Country returnAccount = em.find(Country.class, id);
         return returnAccount;

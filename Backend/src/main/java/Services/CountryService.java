@@ -27,7 +27,7 @@ public class CountryService {
         return countryRepository.getCountries();
     }
 
-    public Country getCountry(int id){
+    public Country getCountry(Long id){
         return countryRepository.getCountry(id);
 
     }

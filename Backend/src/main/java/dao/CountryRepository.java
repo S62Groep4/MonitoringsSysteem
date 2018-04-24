@@ -9,7 +9,7 @@ import java.util.List;
  * Created by Sjoerd on 26-2-2018.
  */
 public interface CountryRepository {
-    Country getCountry(int id);
+    Country getCountry(Long id);
 
     Country getCountry(String name);
 

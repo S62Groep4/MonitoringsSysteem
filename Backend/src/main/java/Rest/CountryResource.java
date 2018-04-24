@@ -32,7 +32,7 @@ public class CountryResource {
 
     @GET
     @Path("/{id}")
-    public Country getCountry(@PathParam("id") int id){
+    public Country getCountry(@PathParam("id") Long id){
         return countryService.getCountry(id);
     }
 
