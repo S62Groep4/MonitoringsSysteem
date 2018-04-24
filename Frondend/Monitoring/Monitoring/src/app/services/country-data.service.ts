@@ -41,7 +41,7 @@ export class CountryDataService {
   public getCountry(id: number): Observable<Country> {
 
     return this.http
-      .post('/api/country/1', httpHeaders)
+      .get('/api/country/1', httpHeaders)
       .map(response => {
         return  new Country(response);
       });

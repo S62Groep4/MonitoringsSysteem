@@ -23,10 +23,13 @@ selectedCountryId: number;
     console.log(this.createSystem.componentName);
     this.countryDataService.getCountry(this.selectedCountryId).subscribe((returnCountry) => {
       this.createSystem.country = returnCountry;
-      this.systemDataService.createSystem(this.createSystem);
+      this.systemDataService.createSystem(this.createSystem)
+        .subscribe((returnCountryList) => {
+
+          this.createSystem = new System();
+        });
     });
 
-    this.createSystem = new System();
   }
 
   loadCountries() {
