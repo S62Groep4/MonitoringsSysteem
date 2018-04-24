@@ -47,4 +47,12 @@ public class Country implements Serializable{
     public Long getId(){
         return this.id;
     }
+
+    public Boolean getExternal() {
+        return isExternal;
+    }
+
+    public void setExternal(Boolean external) {
+        isExternal = external;
+    }
 }

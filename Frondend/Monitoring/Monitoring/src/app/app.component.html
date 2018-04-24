@@ -1,0 +1,26 @@
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <div class="navbar-header">
+
+
+      <a class="navbar-brand" href="../index" id="headerLogo"></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right col-3">
+      <p class="navbar-text " *ngIf="isAdminUser">You are admin!</p>
+      <p class="navbar-text " *ngIf="isUser">You are user!</p>
+      <li col-4><button class="btn navbar-btn float-right" (click)="logout()">Logout</button></li>
+    </ul>
+  </div>
+
+</nav>
+
+<div id="primary-nav">
+
+
+  <hr>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+  <hr>
+</div>

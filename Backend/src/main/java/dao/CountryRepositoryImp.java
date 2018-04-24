@@ -27,6 +27,17 @@ public class CountryRepositoryImp implements CountryRepository {
     }
 
     @Override
+    public Country getCountry(String name) {
+
+        Country returnAccount = em.createQuery("Select a from Country a where a.name = :countryname", Country.class)
+                .setParameter("countryname",name )
+                .getSingleResult();
+        return returnAccount;
+
+
+    }
+
+    @Override
     public List<Country> getCountries() {
         return em.createQuery("Select a from Country a ", Country.class)
                 .getResultList();

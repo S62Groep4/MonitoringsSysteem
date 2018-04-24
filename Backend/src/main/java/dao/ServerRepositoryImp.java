@@ -23,8 +23,6 @@ public class ServerRepositoryImp implements ServerRepository {
 
         SystemModule returnAccount = em.find(SystemModule.class, id);
         return returnAccount;
-
-
     }
 
     @Override

@@ -33,9 +33,21 @@ public class init {
 
     @PostConstruct
     public void init() {
-        createCountries();
-        createSystems();
-        createSystemFeatures();
+        try {
+            createCountries();
+        }catch (Exception ex) {
+            //Ignore init errors
+        }
+        try {
+            createSystems();
+        }catch (Exception ex) {
+                //Ignore init errors
+            }
+            try{
+            createSystemFeatures();}
+        catch (Exception ex) {
+            //Ignore init errors
+        }
     }
 
     private void createCountries(){

@@ -1,0 +1,23 @@
+<div class="jumbotron">
+  <h1 class="display-3">Systems</h1>
+  <p class="lead">Manage all systems</p>
+  <hr class="my-4">
+  <div class="row">
+    <div class="col-12">
+
+      <textarea #componentName class="col-12 form-control"  required
+                [(ngModel)]="createSystem.componentName" placeholder="Server name" >
+      </textarea>
+      <input class="col-8 form-control" [(ngModel)]="createSystem.url" placeholder="Website URL or IP">
+      <select class="col-4" [(ngModel)]="createSystem.country">
+        <option *ngFor="let country of countries$" [value]="country.id">{{country.name}}</option>
+      </select>
+    </div>
+  </div>
+  <p class="lead float-right">
+    <button id="createTweet" class="float-right btn btn-primary btn-lg" (click)="postSystem()">Create system</button>
+
+  </p>
+</div>
+
+<app-system-list></app-system-list>

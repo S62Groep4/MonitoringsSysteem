@@ -11,6 +11,8 @@ import java.util.List;
 public interface CountryRepository {
     Country getCountry(int id);
 
+    Country getCountry(String name);
+
     List<Country> getCountries();
 
     Country createCountry(Country country);

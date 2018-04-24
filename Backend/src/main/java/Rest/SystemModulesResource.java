@@ -22,7 +22,6 @@ public class SystemModulesResource {
     SystemModuleService systemModuleService;
 
     @POST
-    @Path("/")
     public void createSystemModule(SystemModule systemModule) {
 
         systemModuleService.createSystemModule(systemModule);
@@ -50,6 +49,8 @@ public class SystemModulesResource {
 
         throw new WebApplicationException(Response.Status.METHOD_NOT_ALLOWED);
     }
+
+
 
 
 
