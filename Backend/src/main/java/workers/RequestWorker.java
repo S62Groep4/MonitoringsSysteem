@@ -34,6 +34,8 @@ public class RequestWorker implements Runnable {
     @Override
     public void run() {
         System.out.println(Thread.currentThread().getName() + " Start. = " + systemModule.getComponentName());
+        systemModule
+                = service.getServer(systemModule);
         for (SystemFeature feature: systemModule.getSystemFeatures()) {
             processCommand(feature);
         }
@@ -46,7 +48,7 @@ public class RequestWorker implements Runnable {
         httpGetRequest = service.createGetRequest(httpGetRequest);
         feature.getStatusHistory().add(httpGetRequest);
         service.updateServer(systemModule);
-
+        service.updateFeature(feature);
         try {
             URL url = new URL(systemModule.getUrl()+feature.getFeatureUrlExtention());
             url.toExternalForm();

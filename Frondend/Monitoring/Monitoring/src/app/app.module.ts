@@ -14,6 +14,8 @@ import { SystemComponent } from './system-modules/system/system.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {SystemsDataService} from './services/systems-data.service';
 import {CountryDataService} from './services/country-data.service';
+import { SystemPageComponent } from './system-page/system-page.component';
+import {StatusHistoryDataService} from './services/StatusHistory-data.service';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import {CountryDataService} from './services/country-data.service';
     HomeComponent,
     SystemListComponent,
     SystemOverviewComponent,
-    SystemComponent
+    SystemComponent,
+    SystemPageComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -33,6 +36,7 @@ import {CountryDataService} from './services/country-data.service';
   ],
   providers: [
     SystemsDataService,
+    StatusHistoryDataService,
     CountryDataService
 
   ],

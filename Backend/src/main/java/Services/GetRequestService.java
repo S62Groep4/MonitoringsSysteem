@@ -3,6 +3,7 @@ package Services;
 import dao.JPA;
 import dao.ServerRepository;
 import domain.HttpGetRequest;
+import domain.SystemFeature;
 import domain.SystemModule;
 import workers.RequestWorker;
 
@@ -45,8 +46,24 @@ public class GetRequestService {
        return serverRepository.updateGetRequest(httpGetRequest);
     }
 
+    public SystemModule getServer(SystemModule serverModule){
+        return serverRepository.getSystem(serverModule.getId());
+    }
+
     public SystemModule updateServer(SystemModule serverModule){
         return serverRepository.updateSystem(serverModule);
-
     }
+
+    public SystemFeature updateFeature(SystemFeature systemFeature){
+        return serverRepository.updateFeature(systemFeature);
+    }
+
+    public void restartScheduledExecutor(){
+        executor.shutdownNow();
+        executor = Executors.newScheduledThreadPool(10);
+
+        sendRequests();
+    }
+
+
 }

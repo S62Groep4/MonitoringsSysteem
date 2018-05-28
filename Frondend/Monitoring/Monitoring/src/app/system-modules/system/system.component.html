@@ -1,6 +1,30 @@
-<p>
-{{system$.componentName}} - {{system$.url}}<br>
-  <label *ngFor="let feature of system$.systemFeatures">
-    {{feature.featureName}}
-  </label>
-</p>
+<hr>
+<div class="row col-12 bg-light rounded-5">
+  <a class="col-md-4 text-dark" routerLink="/system/{{system$.id}}">
+<div class="font-weight-bold">
+  <h3>{{system$.componentName}}</h3>
+</div>
+  </a>
+  <div class="col-md-6">
+   <a class="text-dark" href="{{system$.url}}">{{system$.url}}</a>
+  </div>
+</div>
+<div class="row">
+<div class="col-md-4 col-sm-6">
+
+  <ul>
+    <li *ngFor="let feature of system$.systemFeatures">
+  	 {{feature.featureName}}
+  </li>
+  </ul>
+</div>
+<div class="col-md-4 col-sm-6">
+
+  <ul class="list-unstyled">
+    <li *ngFor="let feature of system$.systemFeatures">
+      {{system$.url}}<a href="{{system$.url}}{{feature.featureUrlExtention}}">{{feature.featureUrlExtention}}</a>
+  </li>
+  </ul>
+</div>
+</div>
+<hr>

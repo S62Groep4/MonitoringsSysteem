@@ -6,8 +6,8 @@ export class Feature {
   featureName: string;
   featureUrlExtention: string;
   pollingInterval = 5;
-  acceptedResponseCodes: number[];
-  acceptedResponseMessages: string[];
+  acceptedResponseCodes: number[] = [];
+  acceptedResponseMessages: string[] = [];
 
   constructor(values: Object = {}) {
     Object.assign(this, values);

@@ -1,6 +1,9 @@
 package domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.enterprise.inject.Model;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +23,8 @@ public class SystemFeature {
     // Set default polling interval to 5 minutes
     private int pollingInterval = 5;
 
-    @OneToMany
+    @OneToMany(mappedBy = "systemFeature")
+    @JsonbTransient
     private List<HttpGetRequest> statusHistory = new ArrayList<>();
 
     @ElementCollection

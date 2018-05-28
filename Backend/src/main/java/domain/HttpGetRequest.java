@@ -17,6 +17,7 @@ public class HttpGetRequest {
     private int responseNumber;
 
     @ManyToOne
+
     private SystemFeature systemFeature;
 
     private String reponseMessage;

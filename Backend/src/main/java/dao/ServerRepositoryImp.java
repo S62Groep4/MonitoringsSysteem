@@ -57,8 +57,9 @@ public class ServerRepositoryImp implements ServerRepository {
     @Override
     public SystemFeature getFeature(int id) {
 
-        return em.find(SystemFeature.class, id);
-
+        SystemFeature systemFeature = em.find(SystemFeature.class, id);
+        em.refresh(systemFeature);
+        return systemFeature;
 
     }
 

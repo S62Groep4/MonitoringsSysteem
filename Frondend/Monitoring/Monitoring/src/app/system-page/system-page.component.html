@@ -1,0 +1,34 @@
+<div class="jumbotron" *ngIf="system$">
+  <h1 class="display-3">{{system$.componentName}}
+    <label class="lead">{{(system$.country ).name}}</label>
+  </h1>
+  <div class="row">
+    <div class="col-12">
+        <app-system  [system$]="system$"></app-system>
+
+      <div class="row mb-3">
+        <div class="col-md-3 p-0">
+          <input type="text" class="form-control" placeholder="Name" [(ngModel)]="createSystemFeature.featureName">
+        </div>
+        <div class="col-md-3 p-0">
+          <input type="text" class="form-control" placeholder="URL Exention" [(ngModel)]="createSystemFeature.featureUrlExtention">
+        </div>
+        <div class="col-md-2 p-0">
+          <input type="number" class="form-control" placeholder="Response code" [(ngModel)]="createSystemFeatureAcceptedCode">
+        </div>
+        <div class="col-md-4 ">
+
+          <button type="button" class="btn btn-success btn-block" (click)="createFeature()" >Add</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<ul class="list-group" >
+  <li *ngFor="let httpPost of httpRequests$" class="list-group-item">{{httpPost.systemFeature.featureName}} || {{httpPost.responseNumber}} || {{httpPost.reponseMessage}} || Response code: {{httpPost.responseNumber}} || <label *ngIf="httpPost.responseStatus == 'OFFLINE'" class="alert alert-danger m-0">STATUS: {{httpPost.responseStatus}}</label>  <label *ngIf="httpPost.responseStatus == 'ONLINE'" class="alert alert-success m-0">STATUS: {{httpPost.responseStatus}}</label> <label *ngIf="httpPost.responseStatus == 'ERROR'" class="alert alert-warning m-0">STATUS: {{httpPost.responseStatus}}</label> </li>
+
+</ul>

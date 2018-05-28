@@ -2,49 +2,38 @@ package Rest;
 
 
 import Services.SystemModuleService;
+import com.sun.deploy.net.HttpRequest;
+import domain.HttpGetRequest;
 import domain.SystemFeature;
 import domain.SystemModule;
 
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Stateless
-@Path("systemmodules")
+@Path("status")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 
-public class SystemModulesResource {
+public class SystemStatusResource {
 
     @Inject
     SystemModuleService systemModuleService;
 
-    @POST
-    public void createSystemModule(SystemModule systemModule) {
 
-        systemModuleService.createSystemModule(systemModule);
-    }
 
-    @POST
-    @Path("/{id}/feature")
-    public void createFeature(@PathParam("id") long id, SystemFeature systemFeature) {
-
-        systemModuleService.createSystemFeature(id, systemFeature);
-    }
 
     @GET
     @Path("/{id}")
-    public SystemModule getSystemModule(@PathParam("id") long id){
-        return systemModuleService.getSystemModule(id);
+    public List<HttpGetRequest> getSystemModules(@PathParam("id") int id){
+        SystemFeature systemFeature = systemModuleService.getFeatureModule(id);
+        return systemFeature.getStatusHistory();
     }
 
-    @GET
-    public List<SystemModule> getSystemModules(){
-        return systemModuleService.getAllSystemModules();
-    }
 
     @PUT
     public void updateSystemModule(SystemModule systemModule)

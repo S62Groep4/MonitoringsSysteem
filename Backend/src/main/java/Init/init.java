@@ -67,6 +67,7 @@ public class init {
 
         feature1 = new SystemFeature("Test feature", "/business");
         feature1.getAcceptedResponseCodes().add(200 );
+        feature1.setPollingInterval(1);
         systemModule1.getSystemFeatures().add(feature1 );
         feature1 = serverRepository.createFeature(feature1);
         serverRepository.updateSystem(systemModule1);
