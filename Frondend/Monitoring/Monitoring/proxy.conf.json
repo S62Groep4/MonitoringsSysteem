@@ -1,0 +1,11 @@
+{
+  "/api/*": {
+    "target": "http://localhost:8080/LandenMonitoring-1.0-SNAPSHOT/",
+    "secure":false,
+    "logLevel": "debug",
+    "changeOrigin":true,
+    "secure":false,
+    "pathRewrite": {"^/api" : "api"}
+
+  }
+}
